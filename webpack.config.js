@@ -46,6 +46,6 @@ module.exports = {
             filename: "index.html",
             template: path.resolve(__dirname, 'index.html')
         }),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ]
 }
