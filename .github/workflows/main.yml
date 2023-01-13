@@ -40,5 +40,5 @@ jobs:
                   username: ubuntu
                   key: ${{ secrets.DEPLOY_KEY }}
                   script: |
-                      sudo docker compose -f /opt/compose/tool/docker-compose.yml pull home
-                      sudo docker compose -f /opt/compose/tool/docker-compose.yml up -d --build home
+                      sudo docker compose -f /opt/compose/home/docker-compose.yml pull home
+                      sudo docker compose -f /opt/compose/home/docker-compose.yml up -d --build home
