@@ -96,6 +96,7 @@ const emojiList = [
 window.onload = () => {
     let windowWidth = document.documentElement.clientWidth
     let windowHeight = document.documentElement.clientHeight - 16
+    let elList = []
 
     const generateRandom = (val) => {
         return Math.floor(Math.random() * val)
@@ -103,31 +104,44 @@ window.onload = () => {
     const generateCoor = () => {
         return [generateRandom(windowWidth), generateRandom(windowHeight)]
     }
-    const removeEmoji = (el) => {
-        el.classList.add('emoji__fade-out')
-        setTimeout(() => {
-            document.body.removeChild(el)
-        }, 1000)
-    }
+
     window.addEventListener('resize', () => {
         windowWidth = document.documentElement.clientWidth;
         windowHeight = document.documentElement.clientHeight - 16
     })
-    const generateEmoji = () => {
-        const box = document.createElement('span')
-        box.innerText = emojiList[generateRandom(89)]
-        box.classList.add('emoji')
-        box.classList.add(`color-${generateRandom(50)}`)
-        const [left, top] = generateCoor()
-        box.style.top = top + "px"
-        box.style.left = left + "px"
-        document.body.appendChild(box)
-        box.classList.add('emoji__fade-in')
-        setTimeout(() => {
-            removeEmoji(box)
-        }, 1000)
+
+    const loop = () => {
+        elList.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.remove('emoji__fade-out')
+                el.innerText = emojiList[generateRandom(89)]
+                const color = `color-${generateRandom(50)}`
+                el.classList.add(color)
+                const [left, top] = generateCoor()
+                el.style.setProperty('--top', top + "px")
+                el.style.setProperty('--left', left + "px")
+                el.classList.add('emoji__fade-in')
+                setTimeout(() => {
+                    el.classList.remove('emoji__fade-in')
+                    el.classList.add('emoji__fade-out')
+                    setTimeout(() => el.classList.remove(color), 1000)
+                }, 1000)
+            }, i * 100)
+        })
     }
-    setInterval(() => {
-        new Array(20).fill(0).forEach((_, i) => setTimeout(() => generateEmoji(), i * 100))
-    }, 2000)
+
+    const init = () => {
+        new Array(20).fill(0).forEach(() => {
+            const el = document.createElement('span')
+            el.classList.add('emoji')
+            elList.push(el)
+            document.body.appendChild(el)
+        })
+
+        loop()
+
+        setInterval(() => loop(), 2000)
+    }
+
+    init()
 }
