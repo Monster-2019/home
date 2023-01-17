@@ -47,6 +47,8 @@ body {
     position: absolute;
     top: var(--top);
     left: var(--left);
+    font-size: 20px;
+    word-break: normal;
 }
 
 .emoji__fade-in {
