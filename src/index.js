@@ -1,3 +1,5 @@
+import './styles/reset.css'
+import './styles/normalize.css'
 import './styles/color.css'
 import './styles/index.css'
 
