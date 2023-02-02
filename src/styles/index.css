@@ -8,6 +8,10 @@ a {
     text-decoration: none;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     position: relative;
     height: 100vh;
@@ -48,7 +52,7 @@ body {
     top: var(--top);
     left: var(--left);
     font-size: 20px;
-    word-break: normal;
+    white-space: nowrap;
 }
 
 .emoji__fade-in {
@@ -108,5 +112,23 @@ footer a {
 
     70% {
         transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav a {
+        padding: 8px 16px;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .emoji {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 14px;
     }
 }
