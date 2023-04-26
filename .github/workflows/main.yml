@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - 'main'
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -37,8 +38,8 @@ jobs:
               uses: appleboy/ssh-action@master
               with:
                   host: ${{ secrets.HOST }}
-                  username: ubuntu
-                  key: ${{ secrets.DEPLOY_KEY }}
+                  username: root
+                  password: ${{ secrets.PASSWORD }}
                   script: |
                       sudo docker compose -f /opt/compose/home/docker-compose.yml pull home
                       sudo docker compose -f /opt/compose/home/docker-compose.yml up -d --build home
