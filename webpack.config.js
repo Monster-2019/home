@@ -1,9 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    mode: "development",
+    mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/index.js')
     },
@@ -42,10 +43,18 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Monster Cone",
-            filename: "index.html",
+            title: 'Monster Cone',
+            filename: 'index.html',
             template: path.resolve(__dirname, 'index.html')
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'static', // public 文件夹的路径
+                    to: 'static' // 输出目录中的路径
+                }
+            ]
+        })
         // new BundleAnalyzerPlugin()
     ]
 }
