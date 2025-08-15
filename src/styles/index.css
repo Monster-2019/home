@@ -132,3 +132,13 @@ footer a {
         font-size: 14px;
     }
 }
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+footer {
+    font-size: 14px;
+}

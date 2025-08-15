@@ -1,0 +1,30 @@
+# Node.js 依赖
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# 本地构建输出
+dist
+build
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 配置文件
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Git 文件
+.git
+.gitignore
+
+# 临时文件
+*.log
+*.tmp
+*.bak
+.github

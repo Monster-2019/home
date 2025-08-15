@@ -1,8 +1,3 @@
-import './styles/reset.css'
-import './styles/normalize.css'
-import './styles/color.css'
-import './styles/index.css'
-
 const emojiList = [
     "– =͟͟͞͞ʕ•̫͡•ʔ=͟͟͞͞ʕ•̫͡•ʔ=͟͟͞͞ʕ•̫͡•ʔ",
     "ʕ•̼͛͡• ʕ-̺͛͡•ʔ •̮͛͡•ʔ",
